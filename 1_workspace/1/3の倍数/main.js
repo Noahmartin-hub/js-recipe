@@ -8,3 +8,20 @@ const genkiFunction = function(number){
     }
   }
 }
+
+const kisuu = function (n){
+  return 2 * n + 1
+}
+
+kisuu (5)
+
+const plus = function (x, y) {
+  return x + y
+}
+plus (11, 31) 
+
+const multiply = function (x, y) {
+  return x * y 
+}
+
+genkiFunction(100)

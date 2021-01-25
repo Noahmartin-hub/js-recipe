@@ -25,3 +25,14 @@ console.log(Noah.name)
 console.log(Noah.age)
 console.log(Noah.birthDay)
 
+const character = {
+  name:"martin" ,
+  mother:{
+    name:"garrix"
+  },
+  hobbies["music","dancing"],
+}
+
+const multyply = function(a, b) {
+  return a * b
+}

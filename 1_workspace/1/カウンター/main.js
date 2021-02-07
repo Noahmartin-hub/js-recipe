@@ -1,4 +1,4 @@
-const display = document.getElementById("display")
+const display = document.getElementById("button")
 const plusButton = document.getElementById("plus-button")
 
 let count = 0

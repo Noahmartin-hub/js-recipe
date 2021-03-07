@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Static Template</title>
+    <style>
+      .done {
+        text-decoration-line: line-through;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Vue自販機</h1>
+    <div id="app">
+      <div v-if="flag">A</div>
+      <div v-else>B</div>
+
+      <div>Inputmoney : {{ inputmoney }}</div>
+      <div>savedmoney : {{ savedMoney }}</div>
+      <button v-on:click="insertcoin">投入</button>
+      <input type="text" v-model="inputmoney" />
+      <button v-on:click="buy">コーラ</button>
+      <div v-for="item in items">
+        <input type="checkbox" v-model="item.isDone" />
+        <span class="done" v-if="item.isDone">
+          {{ item.text }}
+        </span>
+        <span v-else>
+          {{ item.text }}
+        </span>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+      const app = new Vue({
+        el: "#app",
+        data: {
+          inputmoney: 0, // let inputmoney = 0
+          savedMoney: 0,
+          items: [
+            { text: "コーラ", isDone: true }, //配列の0番目
+            { text: "コーラ", isDone: false }, //配列の1番目
+          ],
+          flag: true,
+        },
+        methods: {
+          //投入金額(inputmoney)を合計金額(savedmoney)に加算する関数
+          insertcoin: function() {
+            this.savedMoney += Number(this.inputmoney)
+            this.inputmoney = 0
+          },
+          buy: function() {
+            this.savedMoney -= 100
+            this.items.push({ text: "コーラ", isDone: false })
+          },
+        },
+      })
+    </script>
+  </body>
+</html>
